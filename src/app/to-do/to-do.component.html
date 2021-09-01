@@ -4,8 +4,12 @@
 
 <p *ngIf="!ToDoItems"><em>Loading..</em></p>
 
+
 <ul *ngIf="ToDoItems">
+    <a class="btn btn-primary" href="ToDo/Create">Add a new ToDo Item</a>
     <li *ngFor="let item of ToDoItems">
+        <a class="btn btn-secondary" href="ToDo/Edit/{{item.Id}}">Edit</a>
+        <a class="btn btn-danger" href="ToDo/Delete/{{item.Id}}">Delete</a>
         <h2>{{item.Title}}</h2>
         <h2>{{item.Date | date:"dd.MM.yy"}} - {{item.Category?.Title}}</h2>
         <h2>{{item.Description}}</h2>

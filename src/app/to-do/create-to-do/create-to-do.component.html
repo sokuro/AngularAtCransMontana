@@ -1,0 +1,28 @@
+<p>create-to-do works!</p>
+
+<div>
+    <div>Title</div>
+    <div><input type="text" [(ngModel)]="currentToDo.Title"/></div>
+</div>
+<div>
+    <div>Date</div>
+    <div><input type="date" [(ngModel)]="currentToDo.Date"/></div>
+</div>
+<div>
+    <div>CategoryId</div>
+    <div><input type="number" [(ngModel)]="currentToDo.CategoryId"/></div>
+</div>
+<div>
+    <div>Category</div>
+    <div><input type="text" [(ngModel)]="currentToDo.Category"/></div>
+</div>
+<div>
+    <div>Description</div>
+    <div><input type="text" [(ngModel)]="currentToDo.Description"/></div>
+</div>
+<div>
+    <div>Color</div>
+    <div><input type="text" [(ngModel)]="currentToDo.Color"/></div>
+</div>
+
+<input type="button" value="save" (click)="save()" />

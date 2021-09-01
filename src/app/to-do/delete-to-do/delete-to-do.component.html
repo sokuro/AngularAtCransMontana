@@ -1,0 +1,30 @@
+<p>delete-to-do works!</p>
+
+<p>create-to-do works!</p>
+
+<div>
+    <div>Title</div>
+    <div>{{currentToDo?.Title}}/></div>
+</div>
+<div>
+    <div>Date</div>
+    <div>{{currentToDo.Date}}/></div>
+</div>
+<div>
+    <div>CategoryId</div>
+    <div>{{currentToDo.CategoryId}}/></div>
+</div>
+<div>
+    <div>Category</div>
+    <div>{{currentToDo.Category}}/></div>
+</div>
+<div>
+    <div>Description</div>
+    <div>{{currentToDo.Description}}/></div>
+</div>
+<div>
+    <div>Color</div>
+    <div>{{currentToDo.Color}}/></div>
+</div>
+
+<input type="button" value="delete" (click)="delete()" />
