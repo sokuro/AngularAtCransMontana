@@ -1,4 +1,10 @@
 export class Category {
+    public get color(): string {
+        return this._color;
+    }
+    public set color(value: string) {
+        this._color = value;
+    }
 
     public get description(): string {
         return this._description;
@@ -44,7 +50,8 @@ export class Category {
         private _date: Date = new Date(Date.now()),
         private _categoryId: number | null = null,
         private _category: Category | null = null,
-        private _description: string = "") 
+        private _description: string = "",
+        private _color: string = "") 
         {
         }
 }

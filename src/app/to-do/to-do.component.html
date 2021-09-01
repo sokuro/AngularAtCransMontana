@@ -1,0 +1,13 @@
+<h1>ToDo Liste</h1>
+
+<p>to-do works!</p>
+
+<p *ngIf="!ToDoItems"><em>Loading..</em></p>
+
+<ul *ngIf="ToDoItems">
+    <li *ngFor="let item of ToDoItems">
+        <h2>{{item.Title}}</h2>
+        <h2>{{item.Date}} - {{item.Category?.Title}}</h2>
+        <h2>{{item.Description}}</h2>
+    </li>
+</ul>
