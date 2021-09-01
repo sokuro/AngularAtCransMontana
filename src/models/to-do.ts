@@ -1,7 +1,6 @@
 import { Category } from "./category";
 
 export class ToDo {
-
     get Id(): number {
         return this.id;
     }
@@ -50,13 +49,21 @@ export class ToDo {
         this.category = value;
     }
 
+    public get Color(): string {
+        return this.color;
+    }
+    public set Color(value: string) {
+        this.color = value;
+    }
+
     constructor(
         private id: number=0,
         private title: string,
         private date: Date=new Date(Date.now()),
         private categoryId: number | null = null,
         private category: Category | null = null,
-        private description: string="") 
+        private description: string="",
+        private color: string = "")
         {
         }
 }
@@ -68,4 +75,5 @@ export class IToDo {
     description: string;
     categoryId: number | null;
     category: Category | null;
+    color: string | null;
 }
