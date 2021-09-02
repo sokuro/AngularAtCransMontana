@@ -10,15 +10,11 @@ import { IToDo, ToDo } from 'src/models/to-do';
 })
 export class CreateToDoComponent implements OnInit {
 
-  currentToDo: ToDo = new ToDo(0, "", new Date(Date.now()), 0, null, "", "");
+  currentToDo: ToDo = new ToDo(0, "", new Date(Date.now()), null, null, "", "");
 
   constructor(private http:HttpClient, private router:Router) { }
 
   ngOnInit(): void {
-    // this.http.post<IToDo>('https://todoapp42.azurewebsites.net/api/todoes', this.currentToDo)
-    // .subscribe(result => {
-    //   this.router.navigate( ["/"] );
-    // }, error => console.error(error));
   }
 
   save() {
@@ -28,4 +24,7 @@ export class CreateToDoComponent implements OnInit {
     }, error => console.error(error));
   }
 
+  cancel() {
+    this.router.navigate( ["/"] );
+  }
 }

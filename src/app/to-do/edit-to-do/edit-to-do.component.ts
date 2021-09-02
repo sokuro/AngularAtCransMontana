@@ -21,7 +21,7 @@ export class EditToDoComponent implements OnInit {
   ngOnInit(): void {
     this.activatedRoute.params.subscribe(params => {
       const id = params['Id'];
-      this.http.get<IToDo>('https://todoapp42.azurewebsites.net/api/todoes' + id)
+      this.http.get<IToDo>('https://todoapp42.azurewebsites.net/api/todoes/' + id)
       .subscribe(result => {
         this.currentToDo = new ToDo(
           result.id,
@@ -30,16 +30,19 @@ export class EditToDoComponent implements OnInit {
           result.categoryId,
           null,
           result.description
-        );
+        )
       }, error => console.error(error));
     })
   }
 
   save() {
-    this.http.put<IToDo>('https://todoapp42.azurewebsites.net/api/todoes' + this.currentToDo?.Id, this.currentToDo)
+    this.http.put<IToDo>('https://todoapp42.azurewebsites.net/api/todoes/' + this.currentToDo?.Id, this.currentToDo)
     .subscribe(result => {
       this.router.navigate( ["/"] );
     }, error => console.error(error));
   }
-
+  
+  cancel() {
+    this.router.navigate( ["/"] );
+  }
 }

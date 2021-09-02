@@ -22,7 +22,7 @@ export class DeleteToDoComponent implements OnInit {
   ngOnInit(): void {
     this.activatedRoute.params.subscribe(params => {
       const id = params['Id'];
-      this.http.get<IToDo>('https://todoapp42.azurewebsites.net/api/todoes' + id)
+      this.http.get<IToDo>('https://todoapp42.azurewebsites.net/api/todoes/' + id)
       .subscribe(result => {
         this.currentToDo = new ToDo(
           result.id,
@@ -35,18 +35,21 @@ export class DeleteToDoComponent implements OnInit {
             // result.category?.color
             ),
           result.description
-        );
+        )
       }, error => console.error(error));
     })
   }
 
   delete() {
     if (this.currentToDo != null) {
-      this.http.delete('https://todoapp42.azurewebsites.net/api/todoes' + this.currentToDo.Id)
+      this.http.delete('https://todoapp42.azurewebsites.net/api/todoes/' + this.currentToDo.Id)
       .subscribe(result => {
         this.router.navigate( ["/"] );
       }, error => console.error(error));
     }
   }
 
+  cancel() {
+    this.router.navigate( ["/"] );
+  }
 }
