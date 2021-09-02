@@ -33,6 +33,10 @@ export class EditToDoComponent implements OnInit {
         )
       }, error => console.error(error));
     })
+
+    // const id = params['Id'];
+
+    // this.repository.getToDoById(id).subscribe(result => this.ToDoItems = result);
   }
 
   save() {

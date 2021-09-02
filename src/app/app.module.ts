@@ -11,6 +11,7 @@ import { CreateToDoComponent } from './to-do/create-to-do/create-to-do.component
 import { FormsModule } from '@angular/forms';
 import { DeleteToDoComponent } from './to-do/delete-to-do/delete-to-do.component';
 import { EditToDoComponent } from './to-do/edit-to-do/edit-to-do.component';
+import { ToDoRepositoryService } from './services/to-do-repository.service';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -34,7 +35,11 @@ const routes: Routes = [
     RouterModule.forRoot(routes),
     FormsModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: 'IToDoRepositoryService', useClass: ToDoRepositoryService
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

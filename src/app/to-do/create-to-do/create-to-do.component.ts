@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { IToDo, ToDo } from 'src/models/to-do';
 
@@ -12,7 +12,10 @@ export class CreateToDoComponent implements OnInit {
 
   currentToDo: ToDo = new ToDo(0, "", new Date(Date.now()), null, null, "", "");
 
-  constructor(private http:HttpClient, private router:Router) { }
+  constructor(
+    @Inject('IToDoRepositoryService') private repository,
+    private http:HttpClient, 
+    private router:Router) { }
 
   ngOnInit(): void {
   }
